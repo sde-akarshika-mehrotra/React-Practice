@@ -1,0 +1,31 @@
+{
+  "name": "namaste-react",
+  "version": "1.0.0",
+  "description": "\"React-practice\"",
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sde-akarshika-mehrotra/React-Practice.git"
+  },
+  "keywords": [],
+  "author": "Akarshika Mehrotra",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sde-akarshika-mehrotra/React-Practice/issues"
+  },
+  "homepage": "https://github.com/sde-akarshika-mehrotra/React-Practice#readme",
+  "devDependencies": {
+    "parcel": "^2.16.4"
+  },
+  "dependencies": {
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7"
+  },
+  "browserslist": [
+    "last 2 versions"
+  ]
+}
