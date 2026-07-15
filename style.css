@@ -1,0 +1,42 @@
+.header {
+  display: flex;
+  border: 2px solid black;
+  justify-content: space-between;
+}
+
+.logo {
+  width: 150px;
+}
+
+.nav-items > ul {
+  display: flex;
+  list-style-type: none;
+  font-size: 24px;
+}
+
+.nav-items > ul > li {
+  padding: 10px;
+  margin: 10px;
+}
+
+.resto-cards {
+  width: 200px;
+  height: 380px;
+  padding: 10px;
+  background-color: #f0f0f0;
+  margin: 12px;
+}
+.search {
+  padding: 10px;
+}
+.resto-cards:hover {
+  border: 1px solid black;
+}
+.resto-logo {
+  width: 100%;
+}
+
+.resto-container {
+  display: flex;
+  flex-wrap: wrap;
+}
