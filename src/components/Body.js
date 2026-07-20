@@ -6,11 +6,10 @@ import { useEffect } from "react";
 
 const Body = () => {
   const [listOfResto, setlistOfResto] = useState(restoList[0].recipes);
-  const [filteredResto, setfilteredResto] = useState([]);
-  const [searchText, setsearchText] = useState([]);
+  const [filteredResto, setfilteredResto] = useState(restoList[0].recipes);
+  const [searchText, setsearchText] = useState("");
 
-  setlistOfResto(json.recipes);
-  setfilteredResto(json.recipes);
+
   // useEffect(() => {
   //   fetchData();
   // }, []);
@@ -29,6 +28,7 @@ const Body = () => {
   return (
     <div className="body">
       <div className="filter">
+
         <div className="search">
           <input
             type="text"
@@ -50,13 +50,15 @@ const Body = () => {
             Search
           </button>
         </div>
+
+
         <div className="filtered-btn"></div>
         <button
           onClick={() => {
             const filteredList = listOfResto.filter(
               (resto) => resto.rating > 4.5,
             );
-            setlistOfResto(filteredList);
+            setfilteredResto(filteredList);
           }}
         >
           Top rated Restaurants
@@ -72,3 +74,4 @@ const Body = () => {
 };
 
 export default Body;
+
