@@ -4,6 +4,7 @@ import Shimmer from "./Shimmer";
 import { useState } from "react";
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
+import useOnlineStatus from "../utils/useOnlineStatus";
 
 const Body = () => {
   const [listOfResto, setlistOfResto] = useState(restoList[0].recipes);
@@ -25,6 +26,14 @@ const Body = () => {
   if (listOfResto.length === 0) {
     return <Shimmer />;
   }
+
+  const OnlineStatus = useOnlineStatus();
+
+  if (OnlineStatus === false)
+    return (
+      <h1>Looks like you're offline! Please check your internet connection</h1>
+    );
+
   return (
     <div className="body">
       <div className="filter">
