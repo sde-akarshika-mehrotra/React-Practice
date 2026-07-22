@@ -3,12 +3,12 @@ import restoList from "../utils/mockData";
 import Shimmer from "./Shimmer";
 import { useState } from "react";
 import { useEffect } from "react";
+import { Link } from "react-router-dom";
 
 const Body = () => {
   const [listOfResto, setlistOfResto] = useState(restoList[0].recipes);
   const [filteredResto, setfilteredResto] = useState(restoList[0].recipes);
   const [searchText, setsearchText] = useState("");
-
 
   // useEffect(() => {
   //   fetchData();
@@ -28,7 +28,6 @@ const Body = () => {
   return (
     <div className="body">
       <div className="filter">
-
         <div className="search">
           <input
             type="text"
@@ -51,7 +50,6 @@ const Body = () => {
           </button>
         </div>
 
-
         <div className="filtered-btn"></div>
         <button
           onClick={() => {
@@ -66,7 +64,9 @@ const Body = () => {
       </div>
       <div className="resto-container">
         {filteredResto.map((recipe) => (
-          <RestaurantCard key={recipe.id} restoData={recipe} />
+          <Link key={recipe.id} to={"restaurants/" + recipe.id}>
+            <RestaurantCard restoData={recipe} />
+          </Link>
         ))}
       </div>
     </div>
@@ -74,4 +74,3 @@ const Body = () => {
 };
 
 export default Body;
-
