@@ -23,6 +23,7 @@ const Body = () => {
   //   const json = await data.json();
   //   console.log(json);
   // };
+  
   if (listOfResto.length === 0) {
     return <Shimmer />;
   }
