@@ -9,6 +9,7 @@ import Error from "./src/components/Error";
 import RestaurantMenu from "./src/components/RestaurantMenu";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import UserContext from "./src/utils/UserContext";
+import { Provider } from "react-redux";
 
 const Grocery = lazy(() => import("./src/components/Grocery"));
 
