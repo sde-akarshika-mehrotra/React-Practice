@@ -1,13 +1,21 @@
 import { useContext } from "react";
 import UserContext from "../utils/UserContext";
+import { useDispatch } from "react-redux";
+import { addItem } from "../utils/cartSlice";
 
 const RestaurantCard = (props) => {
+
+  const dispatch = useDispatch();
+
+  const handleAddItem = (item) => {
+    dispatch(addItem(item));
+  };
+
   const { restoData } = props;
   const { image, name, cuisine, rating, cookTimeMinutes } = restoData || {};
-  const {loggedInUser} = useContext(UserContext);
+  const { loggedInUser } = useContext(UserContext);
 
   return (
-
     <div className="m-4 p-4 w-[250px] bg-gray-100 hover:bg-gray-200 rounded-lg">
       <img className="rounded-lg" src={image} alt="resto-logo" />
 
@@ -16,6 +24,16 @@ const RestaurantCard = (props) => {
       <h4> {rating}</h4>
       <h4>{cookTimeMinutes} mins</h4>
       <h4>User: {loggedInUser}</h4>
+      <button
+        onClick={(e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          handleAddItem(restoData);
+        }}
+        className="bg-green-500 p-2 m-2 rounded-lg"
+      >
+        Add +
+      </button>
     </div>
   );
 };
@@ -24,8 +42,10 @@ export const withPromotedLabel = (RestaurantCard) => {
   return (props) => {
     return (
       <div className="relative">
-        <label className="absolute bg-black text-white px-2 py-1 rounded-lg m-2 z-10">Promoted</label>
-        <RestaurantCard {...props}/>
+        <label className="absolute bg-black text-white px-2 py-1 rounded-lg m-2 z-10">
+          Promoted
+        </label>
+        <RestaurantCard {...props} />
       </div>
     );
   };
