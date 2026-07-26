@@ -1,16 +1,17 @@
 import RestaurantCard, { withPromotedLabel } from "./RestaurantCard";
 import restoList from "../utils/mockData";
 import Shimmer from "./Shimmer";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import UserContext from "../utils/UserContext";
 
 const Body = () => {
   const [listOfResto, setlistOfResto] = useState(restoList[0].recipes);
   const [filteredResto, setfilteredResto] = useState(restoList[0].recipes);
   const [searchText, setsearchText] = useState("");
-
+  const { loggedInUser, setUserName } = useContext(UserContext);
   const RestaurantCardPromoted = withPromotedLabel(RestaurantCard);
 
   // useEffect(() => {
@@ -55,7 +56,6 @@ const Body = () => {
               const filteredResto = listOfResto.filter((res) =>
                 res.name.toLowerCase().includes(searchText.toLowerCase()),
               );
-
               setfilteredResto(filteredResto);
             }}
           >
@@ -76,13 +76,22 @@ const Body = () => {
             Top rated Restaurants
           </button>
         </div>
+
+        <div className="search m-4 p-4 flex items-center">
+          <label>Username: </label>
+          <input
+            className="border border-black p-2"
+            value={loggedInUser}
+            onChange={(e) => setUserName(e.target.value)}
+          />
+        </div>
       </div>
 
       <div className="flex flex-wrap">
         {filteredResto.map((recipe) => (
           <Link key={recipe.id} to={"restaurants/" + recipe.id}>
             {recipe.promoted ? (
-              <RestaurantCardPromoted  restoData={recipe}/>
+              <RestaurantCardPromoted restoData={recipe} />
             ) : (
               <RestaurantCard restoData={recipe} />
             )}

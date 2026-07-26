@@ -22,14 +22,14 @@ const RestaurantMenu = () => {
   }
 
   return (
-    <div>
-      <h1>{restaurant.name}</h1>
-      <p>{restaurant.description}</p>
-      <p>{restaurant.priceForTwo}</p>
-      <p>{restaurant.deliveryTime}</p>
+    <div className="text-center">
+      <h1 className="font-bold my-6 text-2xl">{restaurant.name}</h1>
+      <p className="font-bold text-lg">{restaurant.description}</p>
+      <p className="font-bold text-lg">{restaurant.priceForTwo}</p>
+      <p className="font-bold text-lg">{restaurant.deliveryTime}</p>
 
-      <h2>Menu</h2>
-      <ul>
+      <h2 className="font-bold my-6 text-2xl">Menu</h2>
+      <ul className="font-bold text-lg">
         {restaurant.menu.map((item) => (
           <li key={item.id}>
             {item.name} - ₹{item.price}
@@ -37,8 +37,8 @@ const RestaurantMenu = () => {
         ))}
       </ul>
 
-      <h2>Reviews</h2>
-      <ul>
+      <h2 className="font-bold my-6 text-2xl">Reviews</h2>
+      <ul className="font-bold text-lg">
         {restaurant.reviews.map((review, index) => (
           <li key={index}>
             {review.user} ⭐ {review.rating} - {review.comment}
