@@ -4,7 +4,7 @@ const Contact = () => {
       
         <div>
             <h1>Contact</h1>
-            <h2>This is a Contact component</h2>
+         
         </div>
     );
 };
