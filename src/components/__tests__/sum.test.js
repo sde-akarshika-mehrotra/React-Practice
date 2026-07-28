@@ -1,4 +1,4 @@
-import { sum } from "../src/sum";
+import { sum } from "../../sum";
 
 test ("Sum function should calculate the sum of two numbers", () => {
 

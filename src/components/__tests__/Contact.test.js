@@ -1,5 +1,5 @@
 import { screen } from "@testing-library/dom";
-import Contact from "../src/components/Contact";
+import Contact from "../Contact";
 import "@testing-library/jest-dom";
 import { render } from "@testing-library/react";
 
